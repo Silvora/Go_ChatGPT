@@ -19,7 +19,7 @@ func Chat(ctx *gin.Context) {
 	}
 	//fmt.Println(data)
 
-	c := openai.NewClient("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")
+	c := openai.NewClient(data.Token)
 	con := context.Background()
 	req := openai.CompletionRequest{
 		Model:     data.ModelType(),

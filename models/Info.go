@@ -3,6 +3,7 @@ package models
 import "github.com/sashabaranov/go-openai"
 
 type InfoData struct {
+	Token  string `json:"token"`
 	Model  string `json:"model"`
 	Prompt string `json:"prompt"`
 }
