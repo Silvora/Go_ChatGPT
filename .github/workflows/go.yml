@@ -24,7 +24,9 @@ jobs:
       run: go build main.go
 
     - name: Sudo
-      run: chmod 777 ./main
+      run: |
+        chmod 777 ./main
       
     - name: Run
-      run: setsid ./main
+      run: |
+        setsid ./main
