@@ -22,7 +22,8 @@ jobs:
         port: 22
         script: |
           cd / && cd home/go/Ai &&
-          git clone https://github.com/Zjs-7579/Go_ChatGPT.git &&
+          git clone https://github.com/Zjs-7579/Go_ChatGPT.git ||
+          git pull https://github.com/Zjs-7579/Go_ChatGPT.git &&
           go mod tidy && go build main.go && chmod 777 ./main &&
           setsid ./main
 
