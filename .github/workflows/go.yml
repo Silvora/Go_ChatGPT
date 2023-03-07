@@ -13,20 +13,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Set up Go
-      uses: actions/setup-go@v3
+    - name: Restart
+      uses: appleboy/ssh-action@master
       with:
-        go-version: 1.19
+        host: ${{secrets.HOST}}
+        username: "root"
+        password: ${{secrets.PASSWORD}}
+        port: 22
+        script: |
+          echo cd /home/go/Ai &&
+          git pull https://github.com/Zjs-7579/Go_ChatGPT.git &&
+          go mod tidy && go build main.go && chmod 777 ./main &&
+          setsid ./main
 
-    - name: Build
-      run: go build main.go
 
-    - name: Sudo
-      run: |
-        echo "chmod 777 ./main"
-      
-    - name: Run
-      run: |
-        echo "setsid ./main"
