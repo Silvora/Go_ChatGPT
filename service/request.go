@@ -18,8 +18,8 @@ func Chat(ctx *gin.Context) {
 		return
 	}
 	//fmt.Println(data)
-
 	c := openai.NewClient(data.Token)
+
 	con := context.Background()
 	req := openai.CompletionRequest{
 		Model:     data.ModelType(),
