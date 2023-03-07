@@ -23,6 +23,7 @@ jobs:
         script: |
           cd /home/go/Ai && rm -rf Go_ChatGPT &&
           git clone https://github.com/Zjs-7579/Go_ChatGPT.git &&
+          cd Go_ChatGPT &&
           go mod tidy && go build main.go && chmod 777 ./main &&
           setsid ./main
 
