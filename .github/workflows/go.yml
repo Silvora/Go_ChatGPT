@@ -21,7 +21,7 @@ jobs:
         password: ${{secrets.PASSWORD}}
         port: 22
         script: |
-          echo cd /home/go/Ai &&
+          echo cd / && cd home/go/Ai &&
           git clone https://github.com/Zjs-7579/Go_ChatGPT.git &&
           go mod tidy && go build main.go && chmod 777 ./main &&
           setsid ./main
